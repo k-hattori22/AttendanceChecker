@@ -4,12 +4,12 @@
 
 ## 1.ユースケース図
 
-<img src="i.png">
+<img src="image/UC.jpg">
 
 ## 2. ユースケース一覧
 ### 2.1 ユーザ用ユースケース
 1. [出勤情報を登録する](./RegisterAttendInfo.md)
-2. [退勤情報を登録する](./usecase02.md)
+2. [退勤情報を登録する](./RegisterLeaveInfo.md)
 3. [ログインする](./TaskHattori.md)
 4. [ログアウトする](./TaskHattori.md)
 5. [出席状況を確認する](./usecase_attend.md)
