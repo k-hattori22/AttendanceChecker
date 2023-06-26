@@ -4,7 +4,7 @@
 
 ## 1.ユースケース図
 
-<img src="image/UC.jpg">
+<img src="image/UC.png">
 
 ## 2. ユースケース一覧
 ### 2.1 ユーザ用ユースケース
@@ -17,5 +17,5 @@
 7. [お気に入りを解除する](./FavoritesCanceller.md)
 
 ### 2.2 管理者用ユースケース
-1. [学生を登録する](./usecase06.md)
-2. [学生を削除する](./usecase06.md)
+1. [学生を登録する](./usecase08.md)
+2. [学生を削除する](./usecase09.md)
