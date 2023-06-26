@@ -4,7 +4,7 @@
 
 ## 1.ユースケース図
 
-<img src="img/usecase.png">
+<img src="i.png">
 
 ## 2. ユースケース一覧
 ### 2.1 ユーザ用ユースケース
