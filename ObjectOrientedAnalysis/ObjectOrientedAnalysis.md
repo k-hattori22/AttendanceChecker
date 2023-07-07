@@ -6,7 +6,7 @@
 1. 出勤登録
 <img src="robustness1.jpg">
 
-2. ログインと出席状況の確認
+2. ログインと閲覧
 <img src="robustness2.jpg">
 
 3. お気に入りの追加
@@ -19,7 +19,7 @@
 1. 出勤登録
 <img src="sequence1.jpg">
 
-2. ログインと出席状況の確認
+2. ログインと閲覧
 <img src="sequence2.jpg">
 
 3. お気に入りの追加
