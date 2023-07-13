@@ -3,7 +3,7 @@
 <img src="domain_model.jpg">
 
 ## ロバストネス図
-1. 出勤登録
+1. 出勤を登録する
 <img src="robustness1.jpg">
 
 2. ログインと閲覧
@@ -16,7 +16,7 @@
 <img src="robustness4.jpg">
 
 ## シーケンス図
-1. 出勤登録
+1. 出勤を登録する
 <img src="sequence1.jpg">
 
 2. ログインと閲覧
