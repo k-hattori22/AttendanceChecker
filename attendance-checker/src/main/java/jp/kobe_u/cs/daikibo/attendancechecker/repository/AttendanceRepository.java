@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import jp.kobe_u.cs.daikibo.attendancechecker.entity.Attendance;
 
 @Repository
-public interface AttendanceRepository extends CrudRepository<Attendance, Long>{
-
+public interface AttendanceRepository extends CrudRepository<Attendance, Long> {
+    //
 }

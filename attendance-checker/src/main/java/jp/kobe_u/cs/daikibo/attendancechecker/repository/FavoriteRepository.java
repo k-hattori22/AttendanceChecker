@@ -3,9 +3,9 @@ package jp.kobe_u.cs.daikibo.attendancechecker.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import jp.kobe_u.cs.daikibo.attendancechecker.entity.Attendance;
+import jp.kobe_u.cs.daikibo.attendancechecker.entity.Favorite;
 
 @Repository
-public interface FavoriteRepository extends CrudRepository<Favorite, Long>{
-
+public interface FavoriteRepository extends CrudRepository<Favorite, Long> {
+    //
 }
