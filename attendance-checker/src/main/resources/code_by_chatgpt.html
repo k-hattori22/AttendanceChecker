@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>出勤確認画面</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border: 1px solid #ccc;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>座席表</h2>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <!-- 列の追加 -->
+    </tr>
+    <tr>
+      <td>A</td>
+      <td class="seat" onclick="showStudentInfo('佐藤')">佐藤<span class="name"></span></td>
+      <td class="seat" onclick="showStudentInfo('鈴木')">鈴木<span class="name"></span></td>
+      <td class="seat" onclick="showStudentInfo('田中')">田中<span class="name"></span></td>
+      <!-- 座席の追加 -->
+    </tr>
+    <tr>
+      <td>B</td>
+      <td class="seat" onclick="showStudentInfo('比嘉')">比嘉<span class="name"></span></td>
+      <td class="seat" onclick="showStudentInfo('新垣')">新垣<span class="name"></span></td>
+      <td class="seat" onclick="showStudentInfo('大城')">大城<span class="name"></span></td>
+      <!-- 座席の追加 -->
+    </tr>
+    <!-- 行の追加 -->
+  </table>
+
+  <script>
+    function showStudentInfo(name) {
+      // 列挙する学生情報を定義
+      const studentInfo = {
+        佐藤: "学生番号: 1001\nパスワード: 0000\n学部: 理学部\n専攻: 数学",
+        鈴木: "学生番号: 1002\nパスワード: 0000\n学部: 文学部\n専攻: 国語",
+        田中: "学生番号: 1003\nパスワード: 0000\n学部: 工学部\n専攻: 電気工学",
+        比嘉: "学生番号: 1004\nパスワード: 0000\n学部: 農学部\n専攻: 畜産",
+        新垣: "学生番号: 1005\nパスワード: 0000\n学部: 医学部\n専攻: 看護",
+        大城: "学生番号: 1006\nパスワード: 0000\n学部: 経済学部\n専攻: マクロ経済",
+      };
+
+      // 学生情報を取得
+      const info = studentInfo[name];
+
+      // 別のタブに学生情報を表示
+      const newTab = window.open('', '_blank');
+      newTab.document.write('<html><body><pre>' + info + '</pre></body></html>');
+      newTab.document.close();
+    }
+  </script>
+</body>
+</html>
