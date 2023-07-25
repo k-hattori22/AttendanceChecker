@@ -18,6 +18,6 @@ public class User {
     String boss;
 
     String grade;
-    
+
     String seat;
 }
