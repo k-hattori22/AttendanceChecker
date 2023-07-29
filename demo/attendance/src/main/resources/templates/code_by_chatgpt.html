@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>出勤確認画面</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+
+    td {
+      width: 50px;
+      height: 80px;
+      text-align: center;
+      border: 1px solid #ccc;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      top: 0.5px;
+      right: 12px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #studentInfoContainer {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #closeButton {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>座席表</h2>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <!-- 列の追加 -->
+    </tr>
+    <tr>
+      <td>A</td>
+      <td class="seat" onclick="showStudentInfo('佐藤')">佐藤<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <td class="seat" onclick="showStudentInfo('鈴木')">鈴木<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <td class="seat" onclick="showStudentInfo('田中')">田中<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <!-- 座席の追加 -->
+    </tr>
+    <tr>
+      <td>B</td>
+      <td class="seat" onclick="showStudentInfo('比嘉')">比嘉<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <td class="seat" onclick="showStudentInfo('新垣')">新垣<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <td class="seat" onclick="showStudentInfo('大城')">大城<span class="name"></span><span class="star" onclick="toggleFavorite(this)">&#9733;</span></td>
+      <!-- 座席の追加 -->
+    </tr>
+    <!-- 行の追加 -->
+  </table>
+
+  <div id="studentInfoContainer">
+    <span id="closeButton" onclick="hideStudentInfo()">&times;</span>
+    <h2 id="studentInfoTitle"></h2>
+    <pre id="studentInfoContent"></pre>
+    <button id="favoriteButton" onclick="toggleFavoriteStar()">&#9733; お気に入り登録</button>
+  </div>
+
+  <script>
+    function showStudentInfo(name) {
+      // 列挙する学生情報を定義
+      const studentInfo = {
+        佐藤: "名前: 佐藤\n学年: B4\n担当教員: 〇澤",
+        鈴木: "名前: 鈴木\n学年: M1\n担当教員: 〇澤",
+        田中: "名前: 田中\n学年: M1\n担当教員: 〇森",
+        比嘉: "名前: 比嘉\n学年: M2\n担当教員: 〇澤",
+        新垣: "名前: 新垣\n学年: M2\n担当教員: 〇森",
+        大城: "名前: 大城\n学年: M2\n担当教員: 〇森",
+      };
+
+      // 学生情報を取得
+      const info = studentInfo[name];
+
+      // 学生情報を表示
+      const studentInfoContainer = document.getElementById("studentInfoContainer");
+      const title = document.getElementById("studentInfoTitle");
+      const content = document.getElementById("studentInfoContent");
+      title.textContent = name;
+      content.textContent = info;
+      studentInfoContainer.style.display = "block";
+    }
+
+    function hideStudentInfo() {
+      const studentInfoContainer = document.getElementById("studentInfoContainer");
+      studentInfoContainer.style.display = "none";
+    }
+
+    function toggleFavoriteStar() {
+      const star = document.querySelector(".star");
+      // star要素の色を切り替える
+      if (star.style.color === 'yellow') {
+        star.style.color = 'black';
+      } else {
+        star.style.color = 'yellow';
+      }
+    }
+  </script>
+</body>
+</html>

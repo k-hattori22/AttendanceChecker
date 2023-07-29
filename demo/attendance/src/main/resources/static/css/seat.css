@@ -1,0 +1,37 @@
+/** 座席表に関するデザイン */
+table.seat-container {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+table.seat-container tr:nth-child(2n) {
+    border-collapse: collapse;
+    margin: auto;
+    padding: 50px;
+}
+
+table.seat-container td:nth-child(2n) {
+    border-collapse: collapse;
+    margin: auto;
+    padding: 50px;
+}
+
+table.seat {
+    border-collapse: collapse;
+    margin: auto;
+    border: 3px solid black;
+}
+
+table.seat td {
+    border: 1px solid black;
+}
+
+table.seat td a {
+    display: block;
+    padding: 50px;
+    text-decoration: none;
+}
+
+table.seat td:hover {
+    background: #ff5050;
+}
