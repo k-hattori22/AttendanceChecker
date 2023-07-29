@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ページの共通部品</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <th:block th:fragment="pageHeader (title)">
+        <meta charset="UTF-8">
+        <title th:text="${title}"></title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    </th:block>
+
+    <th:block th:fragment="pageFooter">
+        <hr /> <i>(c) 2023 Team Yone, Large-scale Software Development, Kobe University</i>
+    </th:block>
+
+    <div th:fragment="logout" th:object=${user} style="text-align:right;">
+        <form th:action="@{/logout}" method="post">
+            <p th:switch="${user.role}">
+                <span th:case="'ADMIN'">管理者：</span>
+                <span th:case="'STUDENT'">学生：</span> [[*{name}]] ([[*{username}]])
+                <input type="submit" value="ログアウト">
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

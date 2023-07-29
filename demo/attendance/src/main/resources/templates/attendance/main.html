@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="parts.html :: pageHeader('座席一覧')"></div>
+    <title>出勤確認画面</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/seat.css}">
+</head>
+
+<body>
+    <h1>座席表</h1>
+    <div th:insert="parts.html :: logout"></div>
+
+    <div th:if="${#strings.equals(user.role, 'ADMIN')}">
+        <a class="button" th:href="@{/users}">ユーザ管理</a>
+    </div>
+    
+    <table class="seat-container">
+        <tr>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">あ</a></td>
+                        <td><a th:href="@{/home}">い</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">う</a></td>
+                        <td><a th:href="@{/home}">え</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">お</a></td>
+                        <td><a th:href="@{/home}">か</a></td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">き</a></td>
+                        <td><a th:href="@{/home}">く</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">け</a></td>
+                        <td><a th:href="@{/home}">こ</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">さ</a></td>
+                        <td><a th:href="@{/home}">し</a></td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">き</a></td>
+                        <td><a th:href="@{/home}">く</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">け</a></td>
+                        <td><a th:href="@{/home}">こ</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">さ</a></td>
+                        <td><a th:href="@{/home}">し</a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">あ</a></td>
+                        <td><a th:href="@{/home}">い</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">う</a></td>
+                        <td><a th:href="@{/home}">え</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">お</a></td>
+                        <td><a th:href="@{/home}">か</a></td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">き</a></td>
+                        <td><a th:href="@{/home}">く</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">け</a></td>
+                        <td><a th:href="@{/home}">こ</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">さ</a></td>
+                        <td><a th:href="@{/home}">し</a></td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+            <td>
+                <table class="seat">
+                    <tr>
+                        <td><a th:href="@{/home}">き</a></td>
+                        <td><a th:href="@{/home}">く</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">け</a></td>
+                        <td><a th:href="@{/home}">こ</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/home}">さ</a></td>
+                        <td><a th:href="@{/home}">し</a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <a class="button" th:href="@{/home}">ホーム画面へ</a>
+
+    <div th:insert="parts.html :: pageFooter"></div>
+</body>
+
+</html>

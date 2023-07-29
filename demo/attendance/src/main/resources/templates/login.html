@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>出欠状況確認アプリ</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <h1>出欠状況確認アプリ</h1>
+    <h2>システムログイン</h2>
+    <p th:unless="${message}">出欠状況確認アプリにようこそ！　ログインしてください</p>
+    <p th:if="${message}" th:text="${message}" style="color:red;"></p>
+    <form th:action="@{/authenticate}" method="post">
+        <table>
+            <tr>
+                <td>ユーザID：</td>
+                <td><input type="text" name="userId"></td>
+            </tr>
+            <tr>
+                <td>パスワード:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+        </table>
+        <p>
+            <input class="button" type="reset" value="クリア">
+            <input class="button" type="submit" value="ログイン">
+        </p>
+    </form>
+
+    <div th:insert="parts.html :: pageFooter"></div>
+</body>
+
+</html>
