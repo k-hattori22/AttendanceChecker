@@ -18,11 +18,13 @@ public class AttendanceCheckerException extends RuntimeException {
     public static final int INVALID_ATTENDANCE_UPDATE = 203;
     /* お気に入り系エラーコード */
     public static final int FAVORITE_NOT_FOUND = 300;
-    public static final int INVALID_FAVORITE_FORM = 303;
-    public static final int ROOM_ALREADY_BOOKED = 304;
-    public static final int RESERVATION_NOT_PERMITTED = 305;
+    public static final int INVALID_FAVORITE_FORM = 301;
+    public static final int FAVORITE_ALREADY_EXIST = 302;
+    public static final int RESERVATION_NOT_PERMITTED = 303;
+    public static final int INVALID_FAVORITE_STATUS = 304;
     /* とにかくエラー */
     public static final int ERROR = 999;
+    public static final int FAVORITE_ALREADY_EXISTS = 0;
 
     private int code; //この例外のエラーコード
     //コンストラクタ
