@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="parts.html :: pageHeader('出退勤登録画面')"></div>
+</head>
+
+<body>
+    <h1>カードリーダー</h1>
+    <div th:insert="parts.html :: logout"></div>
+
+    <h2>出退勤読み取り</h2>
+    <p>出退勤時はカードの読み込みをお願いします．</p>
+    <form th:action="@{/read}" method="post">
+        ユーザID：<input type="text" name="userId">
+        <p>
+            <input class="button" type="reset" value="クリア">
+            <input class="button" type="submit" value="出退勤登録">
+        </p>
+    </form>
+
+    <div th:insert="parts.html :: pageFooter"></div>
+</body>
+
+</html>
