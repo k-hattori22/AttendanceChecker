@@ -26,6 +26,8 @@ public class Favorite {
 
     private String favoritedUserId;
 
+    private FavoriteStatus status;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 

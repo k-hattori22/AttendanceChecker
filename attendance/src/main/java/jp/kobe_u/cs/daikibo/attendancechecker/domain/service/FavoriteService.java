@@ -7,8 +7,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD:attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
 import jp.kobe_u.cs.daikibo.attendancechecker.domain.entity.Favorite;
 import jp.kobe_u.cs.daikibo.attendancechecker.domain.exception.AttendanceCheckerException;
+=======
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.entity.AttendanceStatus;
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.entity.Favorite;
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.entity.FavoriteStatus;
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.entity.User;
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.exception.AttendanceCheckerException;
+import jp.kobe_u.cs.daikibo.attendancechecker.domain.repository.AttendanceRepository;
+>>>>>>> 5a16226b5a0a8d4430cdf56d540e62c392bcdd3f:demo/attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
 import jp.kobe_u.cs.daikibo.attendancechecker.domain.repository.FavoriteRepository;
 import jp.kobe_u.cs.daikibo.attendancechecker.domain.repository.UserRepository;
 
@@ -17,6 +26,11 @@ public class FavoriteService {
     @Autowired
     FavoriteRepository fRepo;
     @Autowired
+<<<<<<< HEAD:attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
+=======
+    AttendanceRepository aRepo;
+    @Autowired
+>>>>>>> 5a16226b5a0a8d4430cdf56d540e62c392bcdd3f:demo/attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
     UserRepository uRepo;
 
     /**
@@ -58,6 +72,22 @@ public class FavoriteService {
         return fvt;
     }
 
+<<<<<<< HEAD:attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
+=======
+    // /**
+    //  * お気に入りを更新
+    //  * 
+    //  * @param fvtId
+    //  * @param fvt
+    //  * @return
+    //  */
+    // public Favorite updateFavorite(Long fvtId, Favorite fvt) {
+    //     Favorite orig = getFavorite(fvtId);
+    //     fvt.setCreatedAt(orig.getCreatedAt());
+    //     return fRepo.save(fvt);
+    // }
+
+>>>>>>> 5a16226b5a0a8d4430cdf56d540e62c392bcdd3f:demo/attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
     /**
      * お気に入りを消去する
      * 
@@ -67,4 +97,35 @@ public class FavoriteService {
         Favorite fvt = getFavorite(fvtId);
         fRepo.delete(fvt);
     }
+<<<<<<< HEAD:attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
+=======
+
+    /**
+     * お気に入りのステータスを登録状態に変える
+     * @param fvtId
+     */
+    public void changeToYellowStar(Long fvtId) {
+        Favorite fvt = getFavorite(fvtId);
+        FavoriteStatus status = fvt.getStatus();
+        //ステータスが出席の場合はエラー
+        if (status == FavoriteStatus.YellowStar) {
+            throw new AttendanceCheckerException(AttendanceCheckerException.INVALID_FAVORITE_STATUS, fvtId + ": FavoriteStatus is already YellowStar");
+        }
+        fvt.setStatus(FavoriteStatus.YellowStar);
+    }
+
+    /**
+     * お気に入りのステータスを解除状態に変える
+     * @param fvtId
+     */
+    public void changeToBlackStar(Long fvtId) {
+        Favorite fvt = getFavorite(fvtId);
+        FavoriteStatus status = fvt.getStatus();
+        //ステータスが欠席の場合はエラー
+        if (status == FavoriteStatus.BlackStar) {
+            throw new AttendanceCheckerException(AttendanceCheckerException.INVALID_FAVORITE_STATUS, fvtId + ": FavoriteStatus is still BlackStar");
+        }
+        fvt.setStatus(FavoriteStatus.BlackStar);
+    }
+>>>>>>> 5a16226b5a0a8d4430cdf56d540e62c392bcdd3f:demo/attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/service/FavoriteService.java
 }

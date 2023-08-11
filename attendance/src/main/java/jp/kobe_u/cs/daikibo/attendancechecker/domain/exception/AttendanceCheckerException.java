@@ -19,10 +19,17 @@ public class AttendanceCheckerException extends RuntimeException {
     /* お気に入り系エラーコード */
     public static final int FAVORITE_NOT_FOUND = 300;
     public static final int INVALID_FAVORITE_FORM = 301;
+<<<<<<< HEAD:attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/exception/AttendanceCheckerException.java
     public static final int FAVORITE_ALREADY_EXISTS = 302;
     public static final int INVALID_FAVORITE_STATUS = 303;
+=======
+    public static final int FAVORITE_ALREADY_EXIST = 302;
+    public static final int RESERVATION_NOT_PERMITTED = 303;
+    public static final int INVALID_FAVORITE_STATUS = 304;
+>>>>>>> 5a16226b5a0a8d4430cdf56d540e62c392bcdd3f:demo/attendance/src/main/java/jp/kobe_u/cs/daikibo/attendancechecker/domain/exception/AttendanceCheckerException.java
     /* とにかくエラー */
     public static final int ERROR = 999;
+    public static final int FAVORITE_ALREADY_EXISTS = 0;
 
     private int code; //この例外のエラーコード
     //コンストラクタ
