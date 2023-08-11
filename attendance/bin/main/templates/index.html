@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="parts.html :: pageHeader('座席一覧')"></div>
+</head>
+
+<body>
+    <h1>座席表</h1>
+    <th:block th:insert="parts.html :: logout"></th:block>
+
+    <a class="button" th:href="@{/users}">ユーザ一覧へ</a>
+    <th:block th:if="${#strings.equals(user.role, 'ADMIN')}">
+        <a class="button" th:href="@{/seats}">座席一覧へ</a><br/>
+        <a class="button" th:href="@{/create-user}">ユーザ作成へ</a>
+        <a class="button" th:href="@{/seats/create}">座席作成へ</a>
+    </th:block>
+    
+    <div class="seat-back">
+        <img th:src="@{/img/seats.png}" class="seats">
+
+        <th:block th:if="${#strings.equals(user.role, 'ADMIN')}">
+            <a th:each="vacant : ${vacants}" th:object="${vacant}" th:href="@{/create-user/{seatId}(seatId=*{id})}" class="shadow">
+                <img th:src="@{/img/vacant.png}" th:styleappend="|top: __*{posFromTop}__%; left: __*{posFromLeft}__%;|" class="icon" />
+            </a>
+        </th:block>
+        <th:block th:if="${#strings.equals(user.role, 'GENERAL')}">
+            <div th:each="vacant : ${vacants}" th:object="${vacant}">
+                <img th:src="@{/img/vacant.png}" th:styleappend="|top: __*{posFromTop}__%; left: __*{posFromLeft}__%;|" class="icon" />
+            </div>
+        </th:block>
+
+        <th:block th:each="present : ${presents}" th:object="${present}" th:with="userId=${userMap.get(present.id).id}">
+            <a class="shadow" th:href="${#strings.equals(user.username, userId)} ? @{/me} : @{/users/{userId}(userId=${userId})}">
+                <img th:src="@{/img/present.png}" th:styleappend="|top: __*{posFromTop}__%; left: __*{posFromLeft}__%;|" class="icon" />
+            </a>
+        </th:block>
+
+        <th:block th:each="absent : ${absents}" th:object="${absent}" th:with="userId=${userMap.get(absent.id).id}">
+            <a class="shadow" th:href="${#strings.equals(user.username, userId)} ? @{/me} : @{/users/{userId}(userId=${userId})}">
+                <img th:src="@{/img/absent.png}" th:styleappend="|top: __*{posFromTop}__%; left: __*{posFromLeft}__%;|" class="icon" />
+            </a>
+        </th:block>
+    </div>
+
+    <th:block th:if="${#strings.equals(user.role, 'GENERAL')}" class="notice">
+        <div class="notice-title">お知らせ</div>
+        <ul th:unless="${#lists.isEmpty(favorites)}" class="notice-content">
+            <li th:each="f: ${favorites}">
+                [[${f}]] さんが来ています
+            </li>
+        </ul>
+        <th:block th:if="${#lists.isEmpty(favorites)}" class="notice-content">
+            現在は特にありません
+        </th:block>
+    </th:block>
+
+    <div th:insert="parts.html :: pageFooter"></div>
+</body>
+
+</html>
